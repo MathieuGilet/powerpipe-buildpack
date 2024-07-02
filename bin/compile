@@ -56,5 +56,5 @@ if ! command -v $bin_dir/powerpipe >/dev/null; then
 fi
 
 echo "Installing mod dependencies"
-cd $BUILD_DIR && POWERPIPE_INSTALL_DIR=$BUILD_DIR/.powerpipe $bin_dir/powerpipe mod install
+cd $BUILD_DIR && $bin_dir/powerpipe mod install
 echo "Successfully installed mod dependencies"
