@@ -64,5 +64,5 @@ echo "ls-lah bin_dir"
 ls -lah $bin_dir
 
 echo "Installing mod dependencies"
-cd $BUILD_DIR && $bin_dir/powerpipe mod install
+cd $BUILD_DIR && $bin_dir/powerpipe mod install --install-dir $BUILD_DIR/.powerpipe
 echo "Successfully installed mod dependencies"
