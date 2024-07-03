@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # TODO(everyone): Keep this script simple and easily auditable.
 
 set -e
@@ -7,7 +7,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-target="darwin.arm64.tar.gz"
+target="linux_amd64.tar.gz"
 
 if [ -z $POWERPIPE_VERSION ]; then
 	powerpipe_uri="https://github.com/turbot/powerpipe/releases/latest/download/powerpipe.${target}"
@@ -55,14 +55,6 @@ if ! command -v $bin_dir/powerpipe >/dev/null; then
 	exit 1
 fi
 
-echo "Logs"
-echo "ls -lah"
-ls -lah
-echo "ls -lah BUILD_DIR"
-ls -lah $BUILD_DIR
-echo "ls-lah bin_dir"
-ls -lah $bin_dir
-
 echo "Installing mod dependencies"
-cd $BUILD_DIR && $bin_dir/powerpipe mod install --install-dir $BUILD_DIR/.powerpipe
+cd $BUILD_DIR && POWERPIPE_INSTALL_DIR=$BUILD_DIR/.powerpipe $bin_dir/powerpipe mod install --install-dir $BUILD_DIR/.powerpipe
 echo "Successfully installed mod dependencies"
