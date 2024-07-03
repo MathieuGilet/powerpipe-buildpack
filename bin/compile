@@ -55,6 +55,14 @@ if ! command -v $bin_dir/powerpipe >/dev/null; then
 	exit 1
 fi
 
+echo "Logs"
+echo "ls -lah"
+ls -lah
+echo "ls -lah BUILD_DIR"
+ls -lah $BUILD_DIR
+echo "ls-lah bin_dir"
+ls -lah $bin_dir
+
 echo "Installing mod dependencies"
 cd $BUILD_DIR && $bin_dir/powerpipe mod install
 echo "Successfully installed mod dependencies"
